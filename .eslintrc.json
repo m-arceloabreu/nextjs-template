@@ -1,3 +1,55 @@
 {
-  "extends": "next/core-web-vitals"
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "settings": {
+      "react":{
+        "version": "detect"
+      }
+    },
+    "extends": [
+        "standard-with-typescript",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettoer/recommended",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "react-hooks",
+        "prettier"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "react/react-in-jsx-scope": "always",
+      "prettier/prettier": "error",
+      "import-helpers/order-imports": [
+        "warn",
+        {
+          "newlinesBetween": "always", // Cria uma nova linha para separar as importacoes
+          "groups": [
+            ["/^react/", "/^next/"],
+            "module",
+            "/^@shared/",
+            "absolute",
+            "/^components/",
+            "/^pages/",
+            "/utils/",
+            "/constants/",
+            "/^store/",
+            "/^styles/",
+            "/^templates/",
+            ["parent", "sibling", "index"]
+          ],
+          "alphabetize": { "order": "asc", "ignoreCase": true }
+        }
+    ],
+    }
 }
